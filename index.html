@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Portfolio | Normi</title>
+    <link rel="icon" href="images/logo_tab.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+</head>
+<body>
+    <!-- side links -->
+    <div class="social_media_container">
+        <div class="link">
+            <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+        </div>
+        <div class="link" id="email">
+            <a href="#" onclick="copyEmail(); return false"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+        <div class="link">
+            <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </div>
+    <!--Navbar-->
+    <div class="nav_container" id="nav_container">
+        <a class="logo_container" href="#">
+            <img class="logo_img" src="images/logo_tab.png" alt="logo">
+            <p class="logo_text">NORMI</p>
+        </a>
+        <div class="nav_links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#project">Project</a>
+            <!-- <div class="dropdown">
+                <p class="dropdown_text">Project &#x25BC;</p>
+                    <div class="dropdown_menu">
+                        <a href="">Data</a>
+                        <a href="">Web</a>
+                    </div>
+            </div> -->
+            <a href="#blog">Blog</a>
+        </div>
+        <div class="toggle_btn" id="toggle_btn" onclick="toggleBtn()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <div class="RWD_dropdown_menu" id="RWD_dropdown_menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#blog">Blog</a></li>
+    </div>
+
+    <!--Home-->
+    <div class="home" id="home">
+        <div class="home_bc"></div>
+        <div class="home_part2">
+            <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M76.5,61.5Q73,73,61.5,81.5Q50,90,43.5,76.5Q37,63,32,56.5Q27,50,30,41.5Q33,33,41.5,23Q50,13,61,20.5Q72,28,76,39Q80,50,76.5,61.5Z" stroke="none" fill="#637A9F"></path><path d="M76.5,61.5Q73,73,61.5,81.5Q50,90,43.5,76.5Q37,63,32,56.5Q27,50,30,41.5Q33,33,41.5,23Q50,13,61,20.5Q72,28,76,39Q80,50,76.5,61.5Z" transform="translate(-4.09 1.24)" stroke="#4c698c" stroke-width="1" fill="none"></path></svg> -->
+            <img class="personal_img" src="images/personal.jpg" alt="personal image">
+        </div>
+        <div class="home_part1">
+            <p class="home_part1_h1">Hi, I'm <span class="highlight">Normi</span>.</p>
+            <p class="home_part1_p">A <span class="highlight">Data</span> Scientist and <span class="highlight">Web</span> Developer.</p>
+            <!-- <div class="home_part1_icons">
+                <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+                <a href=""><i class="fa-regular fa-envelope"></i></a>
+            </div> -->
+            <div class="language_container">
+                <div class="language">
+                    <i class="fa-brands fa-python"></i>
+                    <div class="language_bar">
+                        <div class="python"><span>90%</span></div>
+                    </div>
+                </div>
+                <div class="language">
+                    <i class="fa-solid fa-r"></i>
+                    <div class="language_bar">
+                        <div class="r"><span>90%</span></div>
+                    </div>
+                </div>
+                <div class="language">
+                    <i class="fa-brands fa-html5"></i>
+                    <div class="language_bar">
+                        <div class="html"><span>85%</span></div>
+                    </div>
+                </div>
+                <div class="language">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <div class="language_bar">
+                        <div class="css"><span>85%</span></div>
+                    </div>
+                </div>
+                <div class="language">
+                    <i class="fa-brands fa-square-js"></i>
+                    <div class="language_bar">
+                        <div class="javascript"><span>70%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="about" id="about">
+        <div class="about_bc"></div>
+        <div class="timeline">
+            <p class="about_h1">Education and Work Experience</p>
+            <div class="card">
+                <p class="time">2016.9 ~ 2020.6</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">University Of Taipei (臺北市立大學)</p>
+                        <div class="content">
+                            <li>&#128208; Bachelor of Science in Mathematics.</li>
+                            <li>&#127942; Dean's Award.</li>
+                            <li>&#127942; Taipei City Government Certificate of Excellence.</li>
+                            <li>&#127942; The Phi Tau Phi Scholastic Honor Society of the Republic of China Honorary Membership.</li>
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Theoretical courses: calculus, linear algebra, basic mathematics, statistics, regression analysis, advanced calculus, algebra, differential equations, and mathematical statistics.</p>
+                        <p>Software courses: Python programming, R programming, and statistical package software.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="time">2018.8 ~ 2019.7</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">Ministry of Science and Technology Project "Multiple Zeta and Zeta-Star Values"</p>
+                        <div class="content">
+                            <li>&#128104;&#8205;&#128187; Part-time assistant.</li>
+                            <!-- <li>&#128218; Engaged in reading multiple academic papers related to Zeta values, conducted derivations and organization, successfully summarized formulas from previous research. Analyzed mathematical models in-depth, showcasing derivation skills, and provided the team with clear and valuable mathematical descriptions. Emphasized technical and academic background, making a crucial contribution to the research project.</li> -->
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Contributed to Zeta value research by summarizing papers, conducting derivations, and providing clear mathematical insights. Played a key role in enhancing the team's understanding with a strong technical and academic background.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="time">2019.8</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">Academia Sinica Statistical School 2019 (中研院統計研習營)</p>
+                        <div class="content">
+                            <li>&#128104;&#8205;&#128187; Student.</li>
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Using 170,000 pieces of information in the IMDb database to conduct network analysis on actors and directors, the results were published and won third place.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="time">2020.9 ~ 2022.6</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">National Taipei University (國立臺北大學)</p>
+                        <div class="content">
+                            <li>&#128202; Master of Science in Statistics.</li>
+                            <!-- <li>&#128214; <a href="https://hdl.handle.net/11296/nucwff" target="_blank">Thsis: Matrix visualization and clustering of the mobile phone data based on symbolic data analysis.</a></li> -->
+                            <li>&#127942; National Taipei University Certificate of Falcon Reward.</li>
+                            <li>&#127942; The Phi Tau Phi Scholastic Honor Society of the Republic of China Honorary Membership.</li>
+                            <li>&#127942; Competitive Master Thesis of the 2022 TSC Thesis Competition.</li>
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Theoretical courses: mathematical statistics, regression analysis, high-dimensional data analysis, multivariate analysis, time series. Applied.</p>
+                        <p>Software courses: statistical applied, Python programming, statistical simulation, database application, cloud computing and big data programming.</p>
+                        <a href="https://hdl.handle.net/11296/nucwff" target="_blank">Thesis: Matrix visualization and clustering of the mobile phone data based on symbolic data analysis. <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="time">2021.3 ~ 2021.12</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">Mobile Phone Data Integration Project</p>
+                        <div class="content">
+                            <li>&#128104;&#8205;&#128187; Research assistant.</li>
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Mainly responsible for visualizing signaling data, such as signaling density surface diagrams, time series diagrams, and heat maps of people flow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="time">2023.3 ~ 2023.4</p>
+                <div class="info">
+                    <div class="info_card_height">
+                        <p><br><br><br><br></p>
+                    </div>
+                    <div class="info_card">
+                        <p class="title">Office of Research and Development in NTPU (國立臺北大學研究發展處)</p>
+                        <div class="content">
+                            <li>&#128104;&#8205;&#128187; Full-time assistant.</li>
+                        </div>
+                    </div>
+                    <div class="info_hover">
+                        <p>Mainly responsible for school research database management, data cleaning, data analysis, and visual presentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="skill_container">
+            <p class="about_h1">Skills</p>
+        </div> -->
+    </div>
+
+    <!-- Project -->
+    <div class="project" id="project">
+        <div class="project_bc"></div>
+        <div class="swiper">
+            <div class="swiper_wrapper" id="swiper_wrapper">
+                <div class="swiper_slide" id="cheatSheet">
+                    <img class="slide_img" src="images/cheatSheet_demo.png" alt="NormiCoding | Normi">
+                    <div class="slide_content">
+                        <div>
+                            <p class="slide_title">NormiCoding | Normi</p>
+                            <p class="slide_text">Your hub for clear programming cheat sheets. Master fundamental syntax with in-depth insights and practical examples. Let's code smarter together!</p>
+                            <p class="slide_skill"><span class="skill_lang" style="background-color: #e44b23b3">HTML</span><span class="skill_lang" style="background-color: #563d7cb3">CSS</span></p>
+                        </div>
+                        <a href="https://normi-cyh.github.io/NormiCoding/" class="slide_link" target="_blank"><span>Read More</span><span></span></a>
+                    </div>
+                </div>
+                <div class="swiper_slide" id="calculator">
+                    <img class="slide_img" src="images/calculator_demo.png" alt="Calculator | Normi">
+                    <div class="slide_content">
+                        <div>
+                            <p class="slide_title">Calculator | Normi</p>
+                            <p class="slide_text">Explore my web calculator app crafted with HTML, CSS, and JS. Seamlessly perform calculations with an intuitive user interface. Elevate your online computing experience!</p>
+                            <p class="slide_skill"><span class="skill_lang" style="background-color: #e44b23b3">HTML</span><span class="skill_lang" style="background-color: #563d7cb3">CSS</span><span class="skill_lang" style="background-color: #f1e05ab3">JavaScript</span></p>
+                        </div>
+                        <a href="https://normi-cyh.github.io/NormiCalculator/" class="slide_link" target="_blank"><span>Read More</span><span></span></a>
+                    </div>
+                </div>
+                <div class="swiper_slide" id="weather">
+                    <img class="slide_img" src="images/weather_demo.png" alt="Weather | Normi">
+                    <div class="slide_content">
+                        <div>
+                            <p class="slide_title">Weather | Normi</p>
+                            <p class="slide_text">Discover my weather query web app built with HTML, CSS, and JS. Easily check current weather conditions with a user-friendly interface. Stay informed and plan your day seamlessly!</p>
+                            <p class="slide_skill"><span class="skill_lang" style="background-color: #e44b23b3">HTML</span><span class="skill_lang" style="background-color: #563d7cb3">CSS</span><span class="skill_lang" style="background-color: #f1e05ab3">JavaScript</span></p>
+                        </div>
+                        <a href="https://normi-cyh.github.io/NormiWeather/" class="slide_link" target="_blank"><span>Read More</span><span></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="dots">
+                <a class="active" href="#cheatSheet"></a>
+                <a href="#calculator"></a>
+                <a href="#weather"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog -->
+    <div class="blog" id="blog">
+        <div class="blog_bc"></div>
+        <h1 class="blog_title">Some interesting and useful technical articles</h1>
+        <div class="blog_container">
+            <div class="blog_card">
+                <p class="blog_card_title">Blog Example</p>
+                <div class="time_author">
+                    <p class="blog_time">2024-03-15</p>
+                    <p class="author">Normi</p>
+                </div>
+                <div class="blog_tags">
+                    <span class="blog_tag" style="background-color: #FAD7A0;">Visualization</span>
+                    <span class="blog_tag" style="background-color: #A9CCE3;">Data Analysis</span>
+                    <span class="blog_tag" style="background-color: #A2D9CE;">web development</span>
+                    <span class="blog_tag" style="background-color: #198ce7;">R</span>
+                    <span class="blog_tag" style="background-color: #3572A5; color: #F6F8FA;">Python</span>
+                    <span class="blog_tag" style="background-color: #E25A38; color: #F6F8FA;">Git</span>
+                    <span class="blog_tag" style="background-color: #202328; color: #F6F8FA;">GitHub</span>
+                    <span class="blog_tag" style="background-color: #D79032;">SQL</span>
+                    <span class="blog_tag" style="background-color: #e44b23; color: #F6F8FA;">HTML</span>
+                    <span class="blog_tag" style="background-color: #563d7c; color: #F6F8FA;">CSS</span>
+                    <span class="blog_tag" style="background-color: #f1e05a;">JavaScript</span>
+                </div>
+                <a href="blog/20240315_blog_example.html" target="_blank">Read <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="blog_card">
+                <p class="blog_card_title">Exploring Movement Patterns in Mobile Phone Data A Matrix Visualization and Clustering Approach</p>
+                <div class="time_author">
+                    <p class="blog_time">2024-03-18</p>
+                    <p class="author">Normi</p>
+                </div>
+                <div class="blog_tags">
+                    <span class="blog_tag" style="background-color: #FAD7A0;">Visualization</span>
+                    <span class="blog_tag" style="background-color: #A9CCE3;">Data Analysis</span>
+                    <span class="blog_tag" style="background-color: #198ce7;">R</span>
+                </div>
+                <a href="blog/20240318_Exploring_Movement_Patterns_in_Mobile_Phone_Data_A_Matrix_Visualization_and_Clustering_Approach.html" target="_blank">Read <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="blog_card">
+                <p class="blog_card_title">Git / GitHub</p>
+                <div class="time_author">
+                    <p class="blog_time">2024-03-21</p>
+                    <p class="author">Normi</p>
+                </div>
+                <div class="blog_tags">
+                    <span class="blog_tag" style="background-color: #E25A38; color: #F6F8FA;">Git</span>
+                    <span class="blog_tag" style="background-color: #202328; color: #F6F8FA;">GitHub</span>
+                </div>
+                <a href="blog/20240321_Git_GitHub.html" target="_blank">Read <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a class="footer_logo_container" href="#home">
+            <img class="footer_logo_img" src="../images/logo_tab.png" alt="logo">
+            <p class="footer_logo_text">NORMI</p>
+        </a>
+        <p class="copyright">Copyright © 2024 Normi Chen</p>
+    </div>
+        
+    
+    <script>
+        ScrollReveal({ 
+            reset: true,
+            distance: '60px',
+            duration: 500,
+            delay: 100
+        });
+        ScrollReveal().reveal('.personal_img, .about_h1, .blog_title', {origin: 'top'});
+        ScrollReveal().reveal('.language_container', {origin: 'bottom'});
+        ScrollReveal().reveal('.info, .social_media_container, .blog_card', {origin: 'right'});
+        ScrollReveal().reveal('.swiper', {origin: 'left'});
+        // ScrollReveal().reveal('.content', {delay: 200, origin: 'right'});
+
+        var nav = document.getElementById('nav_container')
+        let lastScroll = window.scrollY;
+        window.addEventListener("scroll", () => {
+
+            if (lastScroll < window.scrollY) {
+                nav.classList.add('nav_hidden');
+            }
+            else {
+                nav.classList.remove('nav_hidden');
+            }
+            lastScroll = window.scrollY;
+        });
+        
+
+        var dots = document.querySelectorAll(".dots a");        
+        document.getElementById("swiper_wrapper").addEventListener("scroll", evt => {
+
+            var posi = evt.target.scrollTop;
+            var h = evt.target.offsetHeight;
+            // console.log(posi)
+            if (posi == 0) {
+                dots[0].classList.add('active');
+                dots[1].classList.remove('active');
+                dots[2].classList.remove('active');
+            }
+            else if (posi <= (h+1)) {
+                dots[0].classList.remove('active');
+                dots[1].classList.add('active');
+                dots[2].classList.remove('active');
+            }
+            else if (posi <= h*2) {
+                dots[0].classList.remove('active');
+                dots[1].classList.remove('active');
+                dots[2].classList.add('active');
+            }
+        })
+        // var swiper = new Swiper('.swiper', {
+        //     spaceBetween: 30,
+        //     effect: 'fade',
+        //     loop: true,
+        //     mousewheel: {
+        //         invert: false,
+        //     },
+        //     // autoHeight: true,
+        //     pagination: {
+        //         el: '.swiper-pagination',
+        //         clickable: true,
+        //     }
+        // });
+    </script>
+</body>
+</html>

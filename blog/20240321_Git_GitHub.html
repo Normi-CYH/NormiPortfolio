@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../blog_index.js"></script>
+    <!-- change -->
+    <title>Git / GitHub | Blog | Normi</title> 
+    <!-- change -->
+    <link rel="icon" href="../images/logo_tab.png">
+    <link rel="stylesheet" href="../blog_styles.css">
+    <link rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Mono">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html"><img class="logo" src="../images/logo_tab.png" alt="logo"></a>
+        <div class="navbar_container" id="navbar_container"></div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <!-- change -->
+            <div class="title">Git <i class="fa-brands fa-git-alt"></i> / GitHub <i class="fa-brands fa-github-alt"></i></div>
+            <div class="time_container">
+                <p class="time">2024-03-21</p>
+                <p class="author">Normi Chen</p>
+            </div>
+            <!-- change -->
+            <img src="../images/blog/20240321_Git_GitHub/git_github.jpeg" alt="Git and GitHub">
+            <h1 class="toc">Git</h1>
+            <p>
+                <a href="https://git-scm.com/" class="link_inline" target="_blank">Git</a> is like the superhero of coding tools. It helps developers keep track of changes, collaborate with teammates, and work on projects seamlessly. With its decentralized nature, Git allows offline work and smooth synchronization with team efforts. It's the backbone of modern software development, keeping code organized and projects running smoothly. As follows, we will show that, how to use git to track the code.
+            </p>
+            <h2 class="toc">Initialization</h2>
+            <p>
+                Configure the project folder to allow Git to do version tracking. Generally, any folders are not work for git, so we should do this at the start. The steps as follows:
+            </p>
+            <ol>
+                <li>Create a project folder.</li>
+                <li>Use the terminal to switch the path to the project path <span class="code_inline">cd path/folderName</span>.</li>
+                <li>Input <span class="code_inline">git init</span>.</li>
+            </ol>
+
+            <h2 class="toc">Tracking status</h2>
+            <p>
+                For this step we can observe which files in this directory have not been tracked or have not been updated. 
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git status</span>.</li>
+            </ul>
+
+            <h2 class="toc">Add files</h2>
+            <p>
+                When we create some new files or edits some old files, we hope that it can be tracked. As follows is two ways to add files to the tracking list.  This step indicating that you want Git to record versions of these files.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git add fileName</span>.</li>
+                <li>Input <span class="code_inline">git add .</span> (dot means adding all files from this folder).</li>
+            </ul>
+
+            <h2 class="toc">Commitment</h2>
+            <p>
+                After making any changes, deletions, or additions to this project directory, you should commit the version once. Then git will <span class="important_color">record the version</span> of files from tracking list. If you want, you can type some description for this commit. That will easer to understaning that what' s the chang of this version.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git commit -m "description for this commitment"</span>.</li>
+            </ul>
+            <div class="important_block">
+                When commit for the first time, you will be asked to enter your name and email in order to record who created this commitment.
+            </div>
+
+            <h2 class="toc">View version details</h2>
+            <p>
+                Displays the <span class="important_color">version information</span> recorded by this project, including: author, date, time, and remarks.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git log</span>.</li>
+            </ul>
+
+            <h2 class="toc">Branch</h2>
+            <p>
+                Git allows the creation of different branches, allowing users to copy the original data, and modifications on the branch will <span class="important_color">not affect</span> the original branch. It is usually used to develop new features.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git branch</span>.</li>
+            </ul>
+
+            <h2 class="toc">Process after coding</h2>
+            <p>
+                After coding, you can type the code as blow in your terminal. Then git will record the version for this update. And you can also check the status for this folder.
+            </p>
+            <div class="code_block">git status
+git add .
+git commit -m "description"
+git status
+git log</div>
+
+            <h1 class="toc">GitHub</h1>
+            <p>
+                <a href="https://github.com" class="link_inline" target="_blank">GitHub</a> is basically like a social network for coders. It's a place where developers can store their code, collaborate with others, and showcase their projects to the world. Think of it as a virtual workspace where teams can work together on coding projects, track changes, and manage versions of their code. Plus, it's not just for work - many developers use GitHub to contribute to open-source projects and build their coding portfolios. It's the go-to platform for modern software development, making teamwork and sharing code a breeze.
+            </p>
+
+            <h2 class="toc">Repository of remote</h2>
+            <p>
+                This step is used to confirm whether this folder is linked to the repository on GitHub.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git remote -v</span> (v represent to display the information).</li>
+            </ul>
+
+            <h2 class="toc">Upload</h2>
+            <p>
+                As follows, we will display how to push the project into GitHub repository. Then the project will backup in GitHub.
+            </p>
+
+            <h3 class="toc">Connection</h3>
+            <p>
+                To connect the local project to the remote project on GitHub, you only need to make this connection for the first time, which is similar to the initialization of Git.
+            </p>
+            <ol>
+                <li>Create a repository in your GitHub (if you don' t have the remote project for this local project yet).</li>
+                <li>Copy the url for the repository.</li>
+                <li>Input <span class="code_inline">git remote add remoteName url</span>.</li>
+            </ol>
+            <div class="important_block">
+                The <span class="code_inline">remoteName</span> is usually written as <span class="code_inline">origin</span>. You can choose it by yourself. But the system default is <span class="code_inline">origin</span>, so everyone always write <span class="code_inline">origin</span> for the <span class="code_inline">remoteName</span>.
+            </div>
+
+            <h3 class="toc">Push</h3>
+            <p>
+                Update the locally modified version to the project space of the linked GitHub, which is equivalent to the downloaded <span class="code_inline">pull</span>.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git push remoteName branchName</span>.</li>
+            </ul>
+            <div class="important_block">
+                If you are using it for the first time, the system will ask for your GitHub username and password in order to verify your identity. If your repository dose not have any branch then the <span class="code_inline">branchName</span> will be <span class="code_inline">main</span>.
+            </div>
+
+            <h3 class="toc">General workflow</h3>
+            <p>
+                For the <span class="important_color">new project</span>, after coding you can type the below code to connect the local project to the remote project.
+            </p>
+            <div class="code_block">git status
+git add .
+git status
+git commit -m "description"
+git status
+git remote -v
+git remote add origin url
+git remote -v
+git push origin main</div>
+            <p>
+                For the <span class="important_color">old project</span>, after coding you can type the below code to update the new version of this project.
+            </p>
+            <div class="code_block">git status
+git add .
+git status
+git commit -m "description"
+git status
+git push origin main</div>
+
+            <h2 class="toc">Download</h2>
+            <p>
+                In this section, we will show that how to clone or pull the remote project into local path. Generally, we should do this before start coding, for confirm that our code is newest version.
+            </p>
+
+            <h3 class="toc">Clone</h3>
+            <p>
+                When there is no project on the local side, download the remote project to your own machine for the convenience of editing programs and collaborating with others.
+            </p>
+            <ol>
+                <li>Use the terminal to switch the path to the folder that you want to save the project.</li>
+                <li>Input <span class="code_inline">git clone url folderName</span>.</li>
+            </ol>
+            <div class="important_block">
+                There is no need to have a project folder on the local side. The <span class="code_inline">folderName</span> is mean the name of your local project folder. After clone the repository, the local project is already connected to the remote project, so you can see the information through <span class="code_inline">git remote -v</span>.
+            </div>
+
+            <h3 class="toc">Pull</h3>
+            <p>
+                Before every time you start editing a project, we should merge and update the latest remote project to your own local project, and then continue editing the program, which is equivalent to uploading <span class="code_inline">push</span>.
+            </p>
+            <ul>
+                <li>Input <span class="code_inline">git pull remoteName branchName</span>.</li>
+            </ul>
+
+            <h3 class="toc">General workflow</h3>
+            <p>
+                For the <span class="important_color">new project</span>, before coding you can type the below code to clone the remote project to the local project.
+            </p>
+            <div class="code_block">git clone url folderName
+git remote -v
+git status
+git add .
+git status
+git commit -m "description"
+git status
+git remote -v
+git push origin main</div>
+            <p>
+                For the <span class="important_color">old project</span>, before coding you can type the below code to update the new version of this project in your local project folder.
+            </p>
+            <div class="code_block">git pull origin main
+git status
+git status
+git add .
+git status
+git commit -m "description"
+git status
+git push origin main</div>
+
+            <div class="divider"></div>
+            <p>
+                The above is the most basic operation method of Git and GitHub. We can use this document to help us back up the program and edit the program more conveniently. In addition, using GitHub also allows us to easily collaborate with others to complete development.
+            </p>
+
+        </div>
+            
+
+        <!-- footer -->
+        <div class="footer">
+            <a class="logo_container" href="../index.html">
+                <img class="logo_img" src="../images/logo_tab.png" alt="logo">
+                <p class="logo_text">NORMI</p>
+            </a>
+            <div class="social_media_container">
+                <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+                <div class="" id="email">
+                    <a href="#" onclick="copyEmail(); return false"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        getTitleName();
+    </script>
+</body>
+</html>

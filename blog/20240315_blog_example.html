@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../blog_index.js"></script>
+    <title>Example | Blog | Normi</title>
+    <link rel="icon" href="../images/logo_tab.png">
+    <link rel="stylesheet" href="../blog_styles.css">
+    <link rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Mono">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html"><img class="logo" src="../images/logo_tab.png" alt="logo"></a>
+        <div class="navbar_container" id="navbar_container"></div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="title">The Title of This Blog</div>
+            <div class="time_container">
+                <p class="time">2024-03-14</p>
+                <p class="author">Normi Chen</p>
+            </div>
+            <h1 class="toc">Section 1</h1>
+            <h2 class="toc">Sub-Section 1</h2>
+            <h3 class="toc">Sub-Sub-Section 1</h3>
+            <p>
+                normal content <span class="important_color">This is for important content font color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content <span class="important_inline">This is for important content background color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content.
+            </p>
+            <div class="table_rwd">
+                <table>
+                    <caption>caption of table</caption>
+                    <tr>
+                        <th>column 1</th>
+                        <th>column 2</th>
+                        <th>column 3</th>
+                    </tr>
+                    <tr>
+                        <td>row</td>
+                        <td>row</td>
+                        <td>row</td>
+                    </tr>
+                    <tr>
+                        <td>row</td>
+                        <td>row</td>
+                        <td>row</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                normal content <span class="important_color">This is for important content font color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content.
+            </p>
+            <ul>
+                <li>bulleted list</li>
+                <li>bulleted list</li>
+                <li>bulleted list</li>
+            </ul>
+            <ol>
+                <li>Numbered list</li>
+                <li>Numbered list</li>
+                <li>Numbered list</li>
+            </ol>
+            <h1 class="toc">Section 2</h1>
+            <h2 class="toc">Sub-Section 2</h2>
+            <h3 class="toc">Sub-Sub-Section 2</h3>
+            <img src="../images/blog/20240315_blog_example/project_bc_low_poly_grid.svg" alt="example image">
+            <p class="quote">
+                quote content quote content quote content quote content quote content quote content quote content quote content quote content quote content quote content.
+            </p>
+            <p class="warning">
+                warning content warning content warning content warning content warning content warning content warning content warning content.
+            </p>
+            <p class="important_block">
+                important content important content important content important content important content important content important content.
+            </p>
+            <div class="divider"></div>
+            <div class="code_block">
+/**
+* @param {string} s
+* @return {string}
+*/
+var finalString = function(s) {
+    var ans = '';
+    for (i in s) {
+        if (s[i] != 'i') {
+            ans = ans + s[i];
+        }
+        else {
+            ans = ans.split('').reverse().join('');
+        }
+    }
+    return ans;
+};
+            </div>
+            <p>
+                This is for inline code <span class="code_inline">x = 10</span>. And this is for inline link <a href="https://www.google.com" class="link_inline" target="_blank">google</a>.
+            </p>
+            <a href="https://www.youtube.com" class="link_block" target="_blank">
+                <p>Youtube</p>
+                <p>https://www.youtube.com</p>
+            </a>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <a class="logo_container" href="../index.html">
+                <img class="logo_img" src="../images/logo_tab.png" alt="logo">
+                <p class="logo_text">NORMI</p>
+            </a>
+            <div class="social_media_container">
+                <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+                <div class="" id="email">
+                    <a href="#" onclick="copyEmail(); return false"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        getTitleName();
+    </script>
+</body>
+</html>
