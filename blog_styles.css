@@ -343,7 +343,13 @@ img {
     transition: all 0.5s ease-in-out;
 }
 @media (max-width: 500px) {
-    .navbar_container a {
-        font-size: 0.8rem;
+    .navbar {
+        display: none;
     }
+    .main {
+        margin: auto;
+    }
+    /* .navbar_container a {
+        font-size: 0.8rem;
+    } */
 }
