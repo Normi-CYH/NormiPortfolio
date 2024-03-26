@@ -111,8 +111,8 @@
     <!-- About -->
     <div class="about" id="about">
         <div class="about_bc"></div>
+        <p class="about_h1">Education and Work Experience</p>
         <div class="timeline">
-            <p class="about_h1">Education and Work Experience</p>
             <div class="card">
                 <p class="time">2016.9 ~ 2020.6</p>
                 <div class="info">
@@ -232,9 +232,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="skill_container">
-            <p class="about_h1">Skills</p>
-        </div> -->
     </div>
 
     <!-- Project -->
@@ -364,7 +361,7 @@
         var nav = document.getElementById('nav_container')
         let lastScroll = window.scrollY;
         window.addEventListener("scroll", () => {
-
+            
             if (lastScroll < window.scrollY) {
                 nav.classList.add('nav_hidden');
             }
