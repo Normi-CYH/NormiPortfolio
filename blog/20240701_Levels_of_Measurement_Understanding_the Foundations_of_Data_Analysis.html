@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../blog_index.js"></script>
+    <title>Levels of Measurement: Understanding the Foundations of Data Analysis | Blog | Normi</title>
+    <link rel="icon" href="../images/logo_tab.png">
+    <link rel="stylesheet" href="../blog_styles.css">
+    <link rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Mono">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html"><img class="logo" src="../images/logo_tab.png" alt="logo"></a>
+        <div class="navbar_container" id="navbar_container"></div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="title">Levels of Measurement: Understanding the Foundations of Data Analysis</div>
+            <div class="time_container">
+                <p class="time">2024-07-01</p>
+                <p class="author">Normi Chen</p>
+            </div>
+
+            <img src="../images/blog/20240701_Levels_of_Measurement_Understanding_the Foundations_of_Data_Analysis/measurement.jpg" alt="measurement">
+            <p>
+                In data analysis and statistics, understanding the levels of measurement is important. The level of measurement determines how data can be classified, described, and analyzed. This article will introduce the four main levels of measurement: nominal, ordinal, interval, and ratio scales, and explain their differences and applications.
+            </p>
+
+            <h1 class="toc">Nominal Scale</h1>
+            <p>
+                The nominal scale is the simplest level of measurement, used for classifying data. These data are used only to identify and differentiate between different categories, without any intrinsic order or numerical meaning.
+            </p>
+            <ul>
+                <li><span class="important_color">Examples:</span> Gender (male/female), colors (red/blue/green), city names (Taipei/Tokyo/New York).</li>
+                <li><span class="important_color">Analysis Methods:</span> Mode (most frequent value), proportion analysis (such as percentages).</li>
+            </ul>
+            <div class="table_rwd">
+                <table>
+                    <caption>Example of Nominal Scale</caption>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Color</th>
+                        <th>City Names</th>
+                    </tr>
+                    <tr>
+                        <td>male</td>
+                        <td>red</td>
+                        <td>Taipei</td>
+                    </tr>
+                    <tr>
+                        <td>male</td>
+                        <td>green</td>
+                        <td>Tokyo</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>blue</td>
+                        <td>Tokyo</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>red</td>
+                        <td>New York</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Nominal scale data merely represent different categories and <span class="important_inline">cannot be numerically compared or ordered</span>. For instance, classifying colors into red, blue, and green involves no numerical comparison or ranking.
+            </p>
+
+            <h1 class="toc">Ordinal Scale</h1>
+            <p>
+                Ordinal scale data have an <span class="important_inline">intrinsic order</span> or ranking, but the intervals between values are not necessarily equal. This scale allows for comparisons of the order of values.
+            </p>
+            <ul>
+                <li><span class="important_color">Examples:</span> ducation level (high school/college/graduate), customer satisfaction (satisfied/neutral/dissatisfied), race rankings (first/second/third place).</li>
+                <li><span class="important_color">Analysis Methods:</span> Median, percentages, rank-sum tests.</li>
+            </ul>
+            <div class="table_rwd">
+                <table>
+                    <caption>Example of Ordinal Scale</caption>
+                    <tr>
+                        <th>Ducation Level</th>
+                        <th>Customer Satisfaction</th>
+                        <th>Race Rankings</th>
+                    </tr>
+                    <tr>
+                        <td>high school</td>
+                        <td>satisfied</td>
+                        <td>first</td>
+                    </tr>
+                    <tr>
+                        <td>college</td>
+                        <td>satisfied</td>
+                        <td>second</td>
+                    </tr>
+                    <tr>
+                        <td>college</td>
+                        <td>neutral</td>
+                        <td>third</td>
+                    </tr>
+                    <tr>
+                        <td>graduate</td>
+                        <td>dissatisfied</td>
+                        <td>third</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Ordinal scale allows us to rank data but <span class="important_inline">does not accurately measure the differences between adjacent values</span>. For example, the difference in customer satisfaction between satisfied and neutral may differ from the difference between neutral and dissatisfied.
+            </p>
+
+            <h1 class="toc">Interval Scale</h1>
+            <p>
+                Interval scale data have <span class="important_inline">equal intervals</span> between values and allow for addition and subtraction operations but lack a true zero point, which is arbitrarily set.
+            </p>
+            <ul>
+                <li><span class="important_color">Examples:</span> Temperature (Celsius and Fahrenheit), IQ scores, calendar dates (years).</li>
+                <li><span class="important_color">Analysis Methods:</span> Mean, standard deviation, t-tests, ANOVA.</li>
+            </ul>
+            <div class="table_rwd">
+                <table>
+                    <caption>Example of Interval Scale</caption>
+                    <tr>
+                        <th>Temperature</th>
+                        <th>IQ Score</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr>
+                        <td>23.5</td>
+                        <td>85</td>
+                        <td>20240504</td>
+                    </tr>
+                    <tr>
+                        <td>24.7</td>
+                        <td>90</td>
+                        <td>20240322</td>
+                    </tr>
+                    <tr>
+                        <td>21.8</td>
+                        <td>120</td>
+                        <td>20240418</td>
+                    </tr>
+                    <tr>
+                        <td>22.6</td>
+                        <td>109</td>
+                        <td>20240310</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                In the interval scale, the difference between values is equal, such as the difference between 20°C and 30°C (10 degrees) being the same as the difference between 10°C and 20°C (10 degrees). However, because the <span class="important_inline">zero point is arbitrary</span>, we cannot say that 30°C is twice as hot as 15°C.
+            </p>
+
+            <h1 class="toc">Ratio Scale</h1>
+            <p>
+                Ratio scale data have equal intervals and a true zero point, <span class="important_inline">allowing for all arithmetic operations</span> (addition, subtraction, multiplication, and division).
+            </p>
+            <ul>
+                <li><span class="important_color">Examples:</span> Length, weight, time, income, age.</li>
+                <li><span class="important_color">Analysis Methods:</span> Mean, standard deviation, variance analysis, regression analysis.</li>
+            </ul>
+            <div class="table_rwd">
+                <table>
+                    <caption>Example of Ratio Scale</caption>
+                    <tr>
+                        <th>Length</th>
+                        <th>Weight</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr>
+                        <td>23.5</td>
+                        <td>85.45</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>24.7</td>
+                        <td>90.89</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>21.8</td>
+                        <td>120.32</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>22.6</td>
+                        <td>109.21</td>
+                        <td>26</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Ratio scale data have an <span class="important_inline">absolute zero point</span>, indicating the absence of the measured attribute. For instance, 0 kilograms means no weight, and 10 kilograms is twice as heavy as 5 kilograms. Therefore, ratio scales allow for a broader range of mathematical operations.
+            </p>
+
+            <h1 class="toc">Comparing Interval and Ratio Scales</h1>
+            <p>
+                Understanding the main differences between interval and ratio scales involves the definition of the zero point and the applicability of operations:
+            </p>
+            <ol>
+                <li>
+                    <span class="important_color">Zero Point Definition:</span>
+                    <ul>
+                        <li><span class="important_color">Interval Scale:</span> The zero point is arbitrary and does not represent "none" or "absence" of the attribute. For example, 0°C in Celsius does not mean "no temperature."</li>
+                        <li><span class="important_color">Ratio Scale:</span> The zero point is absolute and represents "none" or "absence" of the attribute. For example, 0 meters indicates no length, and 0 kilograms indicates no weight.</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="important_color">Operations:</span>
+                    <ul>
+                        <li><span class="important_color">Interval Scale:</span> Allows for addition and subtraction, but multiplication and division are meaningless. For example, the difference between 20°C and 10°C is 10 degrees, but 20°C is not twice as hot as 10°C.</li>
+                        <li><span class="important_color">Ratio Scale:</span> Allows for all arithmetic operations, including addition, subtraction, multiplication, and division. For example, 20 kilograms is twice as heavy as 10 kilograms.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h1 class="toc">Practical Applications</h1>
+            <p>
+                Understanding the levels of measurement helps us choose appropriate statistical methods and chart types:
+            </p>
+            <ol>
+                <li><span class="important_inline">Nominal Scale</span> data are suitable for pie charts or bar charts to display proportions or frequency distributions.</li>
+                <li><span class="important_inline">Ordinal Scale</span> data are suitable for bar charts to display rankings or grades.</li>
+                <li><span class="important_inline">Interval Scale and Ratio Scale</span> data are suitable for histograms or line charts to display numerical distributions and trends.</li>
+            </ol>
+
+            <h1 class="toc">Conclusion</h1>
+            <p>
+                Levels of measurement form the foundation of data analysis. Understanding different levels of measurement <span class="important_inline">helps us effectively handle and analyze data</span>. Nominal and ordinal scales are primarily used for classification and ranking, while interval and ratio scales allow for more complex numerical operations. By understanding these scales, we can more accurately choose appropriate statistical methods and derive meaningful conclusions.
+            </p>
+
+            <div class="divider"></div>
+            <a href="https://web.pdx.edu/~newsomj/pa551/lecture1.htm" class="link_block" target="_blank">
+                <p>Types of scales & levels of measurement</p>
+                <p>https://web.pdx.edu/~newsomj/pa551/lecture1.htm</p>
+            </a>
+            </a>
+
+        <!-- footer -->
+        <div class="footer">
+            <a class="logo_container" href="../index.html">
+                <img class="logo_img" src="../images/logo_tab.png" alt="logo">
+                <p class="logo_text">NORMI</p>
+            </a>
+            <div class="social_media_container">
+                <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+                <div class="" id="email">
+                    <a href="#" onclick="copyEmail(); return false"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        getTitleName();
+    </script>
+</body>
+</html>
