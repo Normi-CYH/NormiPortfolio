@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../blog_index.js"></script>
+    <title>How to Create an Interactive Dashboard with Google Sheets | Blog | Normi</title>
+    <link rel="icon" href="../images/logo_tab.png">
+    <link rel="stylesheet" href="../blog_styles.css">
+    <link rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Mono">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html"><img class="logo" src="../images/logo_tab.png" alt="logo"></a>
+        <div class="navbar_container" id="navbar_container"></div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="title">How to Create an Interactive Dashboard with Google Sheets</div>
+            <div class="time_container">
+                <p class="time">2024-07-17</p>
+                <p class="author">Normi Chen</p>
+            </div>
+            <p>
+                In today's data-driven world, dashboards are an awesome way to <span class="important_inline">visualize data</span> and help us grasp and analyze trends better. <a href="https://workspace.google.com/intl/zh-TW/products/sheets/" class="link_inline" target="_blank">Google Sheets</a> isn't just free and easy to use; it also syncs your visualizations across different devices and makes sharing with others a breeze. This makes it perfect for creating interactive and dynamic data dashboards. In this article, I'll show you how to create a simple yet powerful dashboard using Google Sheets.
+            </p>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/dashboard_demo.png" alt="dashboard demo image">
+
+            <h1 class="toc">Data</h1>
+            <p>
+                Before creating the dashboard, we need to quickly organize the data to make sure it's clear and structured. Here's some sample sales data from a coffee shop, including things like item name, categories, sales quantity, and sales amount, etc. Our first step is to import this original data into Google Sheets. For this data sheet, we will only be performing searches on this data, cause it's important to <span class="important_inline">keep the original data accurate</span>.
+            </p>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/original_data.png" alt="original data image">
+
+
+            <h1 class="toc">Query Data</h2>
+            <p>
+                The interactive dashboard means that we can <span class="important_inline">click on certain settings in the dashboard to view different data</span>. In this example, we can select different time periods in the dashboard to observe sales in different time periods.
+            </p>
+            <p>
+                Therefore, we need to filter the raw data using the settings selected in the dashboard. Here we will introduce a useful function <span class="code_inline">query()</span>. In this step, we need to add a new data sheet to store the filtered data. And insert the <span class="code_inline">query()</span> function into the first cell. It should be noted here that the first parameter is <span class="important_inline">the range you want to filter</span>, which is means the original data, and the second parameter is the <span class="important_inline">SQL command</span>.
+            </p>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/query_data.png" alt="query data image">
+            <div class="code_block">
+=query(original_data!A1:F977, join("", "select * where A >= date '", dashboard!B1, "' and A <= date '", dashboard!D1, "'"))
+            </div>
+            <p>
+                Here you can see that we use the function <span class="code_inline">join()</span> to concatenate different strings. The reason is that we need to use the values (<span class="code_inline">dashboard!B1</span> and <span class="code_inline">dashboard!D1</span>) in the dashboard as filter conditions.
+            </p>
+            <p class="important_block">
+                In this case, we use date as the filter condition, so we need to set the format of the date data first, which must conform to the SQL date format (<span class="code_inline">"yyyy-mm-dd"</span>), and add the <span class="code_inline">date</span> to the SQL command to convert text into date.
+            </p>
+
+            <h1 class="toc">Dashboard</h1>
+            <p>
+                Next we can start designing the dashboard! For this example, we used line charts, bar charts, pie charts, and scorecard charts to visualize the data. And we will explain the data types required for these charts in Google sheets, then use an important technology (pivot table) to convert the data into what we need. <span class="important_inline">Note that we should use query data as the basis to display the data</span>.
+            </p>
+            <h2 class="toc">Scorecard Charts</h2>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/scorecard_charts.png" alt="scorecard charts image">
+
+            <p>
+                There are built-in scorecard charts in Google Sheets that can present the sum or average of a certain variable, but it is difficult to adjust to an appropriate layout design, so here we directly use cells to present the sum of sales and the most popular products. And use a function below the most popular products to display the proportion of the most popular products.
+            </p>
+            <p>
+                We just need to insert the function <span class="code_inline">sum()</span> then we can display the total amount of sales. For "Popular Product", we can refer to the code below. First, we can <span class="important_inline">add a new sheet to store all pivot tables</span>. Here we use the built-in function of Google Sheets to insert a <a href="#ptsc" class="link_inline">pivot table</a> ( <span class="code_inline">insert -> Pivot table</span> ), select the product in the row, and set the value to the sum of sales quantity and the sum of sales amount. It's worth noting that <span class="important_inline">the range of the data table must be the dimension of the original data table</span> (we need to make sure that any time period selected will work). Then, we can use the functions <span class="code_inline">index()</span>, <span class="code_inline">match()</span>, and <span class="code_inline">max()</span> to obtain the information we want to present.
+            </p>
+            <div class="table_rwd" id="ptsc">
+                <table>
+                    <caption>Pivot table of scorecard charts</caption>
+                    <tr>
+                        <th>Item_Name</th>
+                        <th>SUM of Sales_Quantity</th>
+                        <th>SUM of Sales_Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Americano</td>
+                        <td>1102</td>
+                        <td>6164.37</td>
+                    </tr>
+                    <tr>
+                        <td>Cappuccino</td>
+                        <td>1124</td>
+                        <td>5901.53</td>
+                    </tr>
+                    <tr>
+                        <td>Cheesecake</td>
+                        <td>1235</td>
+                        <td>6609.38</td>
+                    </tr>
+                    <tr>
+                        <td>Croissant</td>
+                        <td>1138</td>
+                        <td>6262.42</td>
+                    </tr>
+                    <tr>
+                        <td>Espresso</td>
+                        <td>1026</td>
+                        <td>5436.00</td>
+                    </tr>
+                    <tr>
+                        <td>Latte</td>
+                        <td>1152</td>
+                        <td>6194.47</td>
+                    </tr>
+                    <tr>
+                        <td>Mocha</td>
+                        <td>1026</td>
+                        <td>5631.37</td>
+                    </tr>
+                    <tr>
+                        <td>Muffin</td>
+                        <td>1099</td>
+                        <td>6036.83</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="code_block">
+=join("---", index(pivot_data!A2:A9,MATCH(max(pivot_data!$B$2:$B$9),pivot_data!$B$2:$B$9,0)), text(index(pivot_data!C2:C9,MATCH(max(pivot_data!$B$2:$B$9),pivot_data!$B$2:$B$9,0)),"$0.00"))
+            </div>
+            <p>
+                After that, we used the function (<span class="code_inline">sparkline()</span>) to set up a <span class="important_inline">bar chart in the cell</span> to show the sales ratio of the popular product.
+            </p>
+            <div class="code_block">
+=SPARKLINE({max(pivot_data!C2:C9)/pivot_data!C10*100,100-(max(pivot_data!C2:C9)/pivot_data!C10*100)},{"charttype","bar";"max",100;"color1","#d7765a";"color2","#d9d9d9"})
+            </div>
+            <h2 class="toc">Line Charts</h2>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/line_charts.png" alt="line charts image">
+            <p>
+                Here, we use a line chart to show the daily changes in sales amount. Since the original data records the daily sales of a certain item, we need to first create a <a href="#ptlc" class="link_inline">pivot table</a> to count the daily sales. In the line chart of Google Sheets, we need to set an <span class="important_inline">X-axis and one or more Series (Y-axis values)</span>. Here we set the "Date" as the X-axis and the "Total sales amount" as the Y-axis. We can set the amount in the pivot table to currency format, and it will automatically be presented in currency format on the chart.
+            </p>
+            <div class="table_rwd" id="ptlc">
+                <table>
+                    <caption>Pivot table of line charts</caption>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total_Sales_Amount</th>
+                    </tr>
+                    <tr>
+                        <td>2023-03-01</td>
+                        <td>$258</td>
+                    </tr>
+                    <tr>
+                        <td>2023-03-02</td>
+                        <td>$310</td>
+                    </tr>
+                    <tr>
+                        <td>2023-03-03</td>
+                        <td>$414</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                        <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2023-06-30</td>
+                        <td>$222</td>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="toc">Bar Charts</h2>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/bar_charts.png" alt="bar charts image">
+            <p>
+                In the bar chart part, we will present the sales quantity of each item, and use different colors to indicate the category of the item (food/beverage), so we also first add a <a href="#ptbc" class="link_inline">pivot table</a> to calculate the number of sales for each product during this period. In Google Sheets, we need to use <span class="important_inline">different series</span> to control the colors in the chart, so in the pivot table, we need to define different product categories as different columns. In the pivot table, we can <span class="important_inline">add the variable "Category" to the columns</span> to divide it.
+            </p>
+            <div class="table_rwd" id="ptbc">
+                <table>
+                    <caption>Pivot table of bar charts</caption>
+                    <tr>
+                        <th>Item_Name</th>
+                        <th>Beverage</th>
+                        <th>Food</th>
+                    </tr>
+                    <tr>
+                        <td>Americano</td>
+                        <td>1102</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cappuccino</td>
+                        <td>1124</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Espresso</td>
+                        <td>1026</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Latte</td>
+                        <td>1152</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Mocha</td>
+                        <td>1026</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Muffin</td>
+                        <td></td>
+                        <td>1099</td>
+                    </tr>
+                    <tr>
+                        <td>Croissant</td>
+                        <td></td>
+                        <td>1138</td>
+                    </tr>
+                    <tr>
+                        <td>Cheesecake</td>
+                        <td></td>
+                        <td>1235</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 class="toc">Pie Charts</h2>
+            <img src="../images/blog/20240717_How_to_Create_an_Interactive_Dashboard_with_Google_Sheets/pie_charts.png" alt="pie charts image">
+            <p>
+                Pie charts can be used to present proportions of categorical variables. Here we use a pie chart to present the proportion of sales in each month and the proportion of sales quantity of each product. We can first use the function <span class="code_inline">text(cell, "MMM")</span> to convert the variable "Date" into a month, and use the function <span class="code_inline">sumif()</span> to calculate the sales amount of each month, as shown in the <a href="#ptpc" class="link_inline">table</a> below.
+            </p>
+            <p>
+                For the pie chart on the right, we can use a similar technique to create it. It is worth noting that we use a <span class="important_inline">doughnut chart</span> to wrap the pie chart to present the proportion of product categories. Then you just need to adjust the color to match and we're done! !
+            </p>
+            <div class="table_rwd" id="ptpc">
+                <table>
+                    <caption>Pivot table of pie charts for the proportion of sales in each month</caption>
+                    <tr>
+                        <th>Month</th>
+                        <th>Total_Sales</th>
+                    </tr>
+                    <tr>
+                        <td>Mar</td>
+                        <td>$12,050</td>
+                    </tr>
+                    <tr>
+                        <td>Apr</td>
+                        <td>$11,393</td>
+                    </tr>
+                    <tr>
+                        <td>May</td>
+                        <td>$12,839</td>
+                    </tr>
+                    <tr>
+                        <td>Jun</td>
+                        <td>$11,955</td>
+                    </tr>
+                </table>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/12Qo7CTjqBoMcd532LWWuEc1wz3y0SHQc4Xf1M0StGlI/edit?usp=sharing" class="link_block" target="_blank">
+                <p>The Google sheets for this project</p>
+                <p>https://docs.google.com/spreadsheets/d/12Qo7CTjqBoMcd532LWWuEc1wz3y0SHQc4Xf1M0StGlI/edit?usp=sharing</p>
+            </a>
+            <!-- <h1 class="toc">Section 1</h1>
+            <h2 class="toc">Sub-Section 1</h2>
+            <h3 class="toc">Sub-Sub-Section 1</h3>
+            <p>
+                normal content <span class="important_color">This is for important content font color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content <span class="important_inline">This is for important content background color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content.
+            </p>
+            <div class="table_rwd">
+                <table>
+                    <caption>caption of table</caption>
+                    <tr>
+                        <th>column 1</th>
+                        <th>column 2</th>
+                        <th>column 3</th>
+                    </tr>
+                    <tr>
+                        <td>row</td>
+                        <td>row</td>
+                        <td>row</td>
+                    </tr>
+                    <tr>
+                        <td>row</td>
+                        <td>row</td>
+                        <td>row</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                normal content <span class="important_color">This is for important content font color</span> normal content normal content normal content normal content normal content normal content normal content normal content normal content normal content.
+            </p>
+            <ul>
+                <li>bulleted list</li>
+                <li>bulleted list</li>
+                <li>bulleted list</li>
+            </ul>
+            <ol>
+                <li>Numbered list</li>
+                <li>Numbered list</li>
+                <li>Numbered list</li>
+            </ol>
+            <h1 class="toc">Section 2</h1>
+            <h2 class="toc">Sub-Section 2</h2>
+            <h3 class="toc">Sub-Sub-Section 2</h3>
+            <img src="../images/blog/20240315_blog_example/project_bc_low_poly_grid.svg" alt="example image">
+            <p class="quote">
+                quote content quote content quote content quote content quote content quote content quote content quote content quote content quote content quote content.
+            </p>
+            <p class="warning">
+                warning content warning content warning content warning content warning content warning content warning content warning content.
+            </p>
+            <p class="important_block">
+                important content important content important content important content important content important content important content.
+            </p>
+            <div class="divider"></div>
+            <div class="code_block">
+/**
+* @param {string} s
+* @return {string}
+*/
+var finalString = function(s) {
+    var ans = '';
+    for (i in s) {
+        if (s[i] != 'i') {
+            ans = ans + s[i];
+        }
+        else {
+            ans = ans.split('').reverse().join('');
+        }
+    }
+    return ans;
+};
+            </div>
+            <p>
+                This is for inline code <span class="code_inline">x = 10</span>. And this is for inline link <a href="https://www.google.com" class="link_inline" target="_blank">google</a>.
+            </p>
+            <a href="https://www.youtube.com" class="link_block" target="_blank">
+                <p>Youtube</p>
+                <p>https://www.youtube.com</p>
+            </a>
+        </div> -->
+
+        <!-- footer -->
+        <div class="footer">
+            <a class="logo_container" href="../index.html">
+                <img class="logo_img" src="../images/logo_tab.png" alt="logo">
+                <p class="logo_text">NORMI</p>
+            </a>
+            <div class="social_media_container">
+                <a href="https://github.com/Normi-CYH" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+                <div class="" id="email">
+                    <a href="#" onclick="copyEmail(); return false"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        getTitleName();
+    </script>
+</body>
+</html>
